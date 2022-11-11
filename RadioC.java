@@ -1,7 +1,7 @@
 
 /******************************************************************
  * 
- * Author: Gabriel Paz. Carnet 221087. Fecha de edicion 10-11-2022
+ * Author: Gabriel Paz. Andre Marroquin, Carnet 221087, 22266 Fecha de edicion 10-11-2022
  * 
  * This class defines the methods of interface CarC. It is a concrete class and
  * will be instanced by the main Ctrl class to perform the user actions.

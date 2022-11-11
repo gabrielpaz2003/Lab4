@@ -1,8 +1,8 @@
 
 /******************************************************************
 * 
-* Author: Gabriel Paz. 
-* Carnet 221087
+* Author: Gabriel Paz. Andre Marroquin
+* Carnet 221087, 22266
 * Fecha de edicion 10-11-22
 * 
 * This is the main part of the program and will control the user inputs
