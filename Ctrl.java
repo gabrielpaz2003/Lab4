@@ -3,21 +3,29 @@
 * 
 * Author: Gabriel Paz. 
 * Carnet 221087
-* Fecha de edicion 10-11-22
+* Author: Sergio Orellana
+* Carné: 221122
+* Author: Andre Marroquin
+* Carné: 22266
+* Fecha de edicion 11-11-22
 * 
 * This is the main part of the program and will control the user inputs
 * 
 ******************************************************************/
 
 import java.util.Scanner;
+import java.time.Duration;
 import java.util.ArrayList;
 
 class Ctrl {
+    
+    /** 
+     * @param args
+     */
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         // Crear perro y pe
         int opcion = 0;
-
         Vista UserView = new Vista();
 
         /******************************************************************
@@ -36,19 +44,12 @@ class Ctrl {
          ******************************************************************/
 
         ArrayList<String> EmisoraList = new ArrayList<String>();
-        ArrayList<String> Playlist = new ArrayList<String>();
         ArrayList<String> Contacts = new ArrayList<String>();
-
-        Playlist.add("Over and Over");
-        Playlist.add("Walk!!");
-        Playlist.add("Burn it down");
-        Playlist.add("Jingle Bells");
-        Playlist.add("Cold outside");
 
         EmisoraList.add("Yosi sideral");
         EmisoraList.add("Mente fresca");
         EmisoraList.add("Radio ranchera");
-        EmisoraList.add("Honestamente no conozco otra estacion de radio");
+        EmisoraList.add("Emisora Unidas");
 
         Contacts.add("Mama");
         Contacts.add("Papa");
@@ -61,134 +62,155 @@ class Ctrl {
         * 
         ******************************************************************/
 
-                int OpcionRadioC = 0;
+        int OpcionRadioC = 1;
 
-                while (OpcionRadioC != 5) {
+        while (OpcionRadioC >= 1 && OpcionRadioC <= 5) {
 
-                    UserView.SetRadioMode();
-                    OpcionRadioC = scan.nextInt();
+            UserView.SetRadioMode();
+            OpcionRadioC = scan.nextInt();
+            scan.nextLine();
 
-                    if (OpcionRadioC == 1) {
+            switch(OpcionRadioC){
+                case 1:{
+                    int OpcionModoRadioC = 0;
 
-                        int OpcionModoRadioC = 0;
+                    while (OpcionModoRadioC != 6) {
+                        scan = new Scanner(System.in);
 
-                        while (OpcionModoRadioC != 6) {
-                            scan = new Scanner(System.in);
+                        UserView.ModoRadio();
+                        OpcionModoRadioC = scan.nextInt();
+                        scan.nextLine();
 
-                            UserView.ModoRadio();
-                            OpcionModoRadioC = scan.nextInt();
-
-                            if (OpcionModoRadioC == 1) {
-
-                                /******************************************************************
-                                 * 
-                                 * Raise volume
-                                 * 
-                                 ******************************************************************/
-
-                                RadioTipoC.RaiseVolume(RadioTipoC);
-
-                            } else if (OpcionModoRadioC == 2) {
-
-                                RadioTipoC.LowerVolume(RadioTipoC);
-
-                            } else if (OpcionModoRadioC == 3) {
-
-                                RadioTipoC.ChangeStationUp(RadioTipoC);
-
-                            } else if (OpcionModoRadioC == 4) {
-                                RadioTipoC.ChangeStationDown(RadioTipoC);
-
-                            } else if (OpcionModoRadioC == 5) {
-                                RadioTipoC.SaveStation(EmisoraList);
-                            }
-
-                        }
-
-                    } else if (OpcionRadioC == 2) {
-
-                        int OpcionModoReproduccionC = 0;
-
-                        while (OpcionModoReproduccionC != 5) {
-                            scan = new Scanner(System.in);
-
-                            UserView.ModoReproduccion();
-                            OpcionModoReproduccionC = scan.nextInt();
+                        if (OpcionModoRadioC == 1) {
 
                             /******************************************************************
                              * 
-                             * Modo reproduccion
+                             * Raise volume
                              * 
                              ******************************************************************/
 
-                            if (OpcionModoReproduccionC == 1) {
+                            RadioTipoC.RaiseVolume(RadioTipoC);
 
-                                RadioTipoC.PlayPlaylist(Playlist);
+                        } else if (OpcionModoRadioC == 2) {
 
-                            } else if (OpcionModoReproduccionC == 2) {
+                            RadioTipoC.LowerVolume(RadioTipoC);
 
-                                RadioTipoC.ChangeSongForward(Playlist);
+                        } else if (OpcionModoRadioC == 3) {
 
-                            } else if (OpcionModoReproduccionC == 3) {
+                            RadioTipoC.ChangeStationUp(RadioTipoC);
 
-                                RadioTipoC.ChangeSongBackwards(Playlist);
+                        } else if (OpcionModoRadioC == 4) {
+                            RadioTipoC.ChangeStationDown(RadioTipoC);
 
-                            } else if (OpcionModoReproduccionC == 4) {
-
-                            }
-
+                        } else if (OpcionModoRadioC == 5) {
+                            RadioTipoC.SaveStation(EmisoraList);
                         }
+                    }
+                    break;
+                }
+                case 2:{
+                    int OpcionModoReproduccionC = 0;
 
-                    } else if (OpcionRadioC == 3) {
+                    while (OpcionModoReproduccionC != 5) {
+                        scan = new Scanner(System.in);
 
-                        int OpcionModoTelefonoC = 0;
+                        UserView.ModoReproduccion();
+                        OpcionModoReproduccionC = scan.nextInt();
+                        scan.nextLine();
 
-                        while (OpcionModoTelefonoC != 5) {
+                        /******************************************************************
+                         * 
+                         * Modo reproduccion
+                         * 
+                         ******************************************************************/
 
-                            UserView.ModoTelefono();
-                            OpcionModoTelefonoC = scan.nextInt();
+                        if (OpcionModoReproduccionC == 1) {
 
-                            if (OpcionModoTelefonoC == 1) {
-                                RadioTipoC.ConnectPhone();
+                            RadioTipoC.PlayPlaylist();
 
-                            } else if (OpcionModoTelefonoC == 2) {
+                        } else if (OpcionModoReproduccionC == 2) {
 
-                                RadioTipoC.DisconnectPhone();
+                            RadioTipoC.ChangeSongForward();
 
-                            } else if (OpcionModoTelefonoC == 3) {
+                        } else if (OpcionModoReproduccionC == 3) {
 
-                                RadioTipoC.ShowContacts(Contacts);
+                            RadioTipoC.ChangeSongBackwards();
 
-                            } else if (OpcionModoTelefonoC == 4) {
-
-                                RadioTipoC.MakeACall();
-                            }
-
+                        } else if (OpcionModoReproduccionC == 4) {
+                            System.out.println("Ingresa la cancion que deseas escuchar");
+                            String cancion = scan.nextLine();
+                            System.out.println("Ahora mismo se esta escuchando la cancion " + cancion);
                         }
+                    }
+                    break;
+                }
+                case 3:{
+                    int OpcionModoTelefonoC = 0;
 
-                    } else if (OpcionRadioC == 4) {
+                    while (OpcionModoTelefonoC != 5) {
 
-                        int OpcionModoSpecialC = 0;
+                        UserView.ModoTelefono();
+                        OpcionModoTelefonoC = scan.nextInt();
+                        scan.nextLine();
 
-                        while (OpcionModoSpecialC != 3) {
+                        if (OpcionModoTelefonoC == 1) {
+                            RadioTipoC.ConnectPhone();
 
-                            System.out.println("Opciones especiales para carro A");
-                            System.out.println("1. Poner llamada en hold");
-                            System.out.println("2. Mostrar Pronostico del clima");
-                            OpcionModoSpecialC = scan.nextInt();
+                        } else if (OpcionModoTelefonoC == 2) {
 
-                            if (OpcionModoSpecialC == 1) {
+                            RadioTipoC.DisconnectPhone();
 
-                                RadioTipoC.Hold();
+                        } else if (OpcionModoTelefonoC == 3) {
 
-                            } else if (OpcionModoSpecialC == 2) {
-                                RadioTipoC.Weather();
-                            }
+                            RadioTipoC.ShowContacts(Contacts);
 
+                        } else if (OpcionModoTelefonoC == 4) {
+
+                            RadioTipoC.MakeACall();
                         }
 
                     }
 
-                } 
+                    break;
+                }
+                case 4:{
+                    int OpcionModoSpecialC = 0;
+
+                    while (OpcionModoSpecialC != 3) {
+
+                        System.out.println("Opciones especiales para carro A");
+                        System.out.println("1. Poner llamada en hold");
+                        System.out.println("2. Mostrar Pronostico del clima");
+                        System.out.println("3. Salir de esta opcion");
+                        OpcionModoSpecialC = scan.nextInt();
+                        scan.nextLine();
+
+                        if (OpcionModoSpecialC == 1) {
+
+                            RadioTipoC.Hold();
+
+                        } else if (OpcionModoSpecialC == 2) {
+                            RadioTipoC.Weather();
+                        }
+
+                    }
+
+                    break;
+                }
+                case 5:{
+                    String pregunta = "No";
+                    while(pregunta.equalsIgnoreCase("No")){
+                        System.out.println("Radio Apagada...");
+                        System.out.println("¿Quieres encender la radio? (Si/No)");
+                        pregunta = scan.nextLine();
+                    }
+                    OpcionRadioC = 1;
+                    break;
+                }
+                }
+
+        } 
+        //Se le muestra un mensaje de despedida al usuario
+        System.out.println("Gracias por utilizar nuestro programa, hasta luego...");
     }
 }

@@ -3,17 +3,16 @@
 * 
 * Author: Gabriel Paz. 
 * Carnet 221087
-* Fecha de edicion 09-11-2022
+* Author: Sergio Orellana
+* Carné: 221122
+* Author: Andre Marroquin
+* Carné: 22266
+* Fecha de edicion 11-11-22
 * 
 * This is the part of the program where all the menus are called from
 * 
 ******************************************************************/
-
-import java.util.Scanner;
-
 class Vista {
-
-  Scanner scan = new Scanner(System.in);
 
   /******************************************************************
    * 
@@ -27,7 +26,8 @@ class Vista {
     System.out.println("2. Modo reproduccion");
     System.out.println("3. Modo Telefono");
     System.out.println("4. Caracteristicas especiales de tu radio");
-    System.out.println("5. Apagar Radio\n\n");
+    System.out.println("5. Apagar Radio");
+    System.out.println("6. Salir de la Radio\n\n");
 
     System.out.println("Selecciona una opcion 1-5");
   }
@@ -57,10 +57,10 @@ class Vista {
 
   public void ModoTelefono() {
     System.out.println("\n\nQue deseas hacer!");
-    System.out.println("1. Connectar telefono");
+    System.out.println("1. Conectar telefono");
     System.out.println("2. Desconectar telefono");
-    System.out.println("3. Llamar a un contacto");
-    System.out.println("4. Escuchar cancion especifica");
+    System.out.println("3. Mostrar Contactos");
+    System.out.println("4. Llamar a un contacto");
     System.out.println("5. Salir\n\n");
 
     System.out.println("Selecciona una opcion 1-5");

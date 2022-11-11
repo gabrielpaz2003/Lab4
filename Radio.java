@@ -1,15 +1,19 @@
-
 /******************************************************************
 * 
 * Author: Gabriel Paz. 
 * Carnet 221087
-* Fecha de edicion 10-11-2022
+* Author: Sergio Orellana
+* Carné: 221122
+* Author: Andre Marroquin
+* Carné: 22266
+* Fecha de edicion 11-11-22
 * 
 * This class is abstract and serves as the "mother" class. It includes all the generic actions a radio can do
 * 
 ******************************************************************/
 
 import java.util.Scanner;
+import java.time.Duration;
 import java.util.ArrayList;
 
 public abstract class Radio {
@@ -80,16 +84,24 @@ public abstract class Radio {
      * 
      ******************************************************************/
 
-    public void PlayPlaylist(ArrayList CurrentList) {
+    public void PlayPlaylist() {
         int PlaylistIndex;
 
+        ArrayList<Cancion> cancions = new ArrayList<Cancion>();
+        cancions.add(new Cancion(0,"Bones", Duration.ofMinutes(3), "Electronica", "Imagine Dragons"));
+        cancions.add(new Cancion(1,"Billie Jean", Duration.ofMinutes(5), "Pop", "Michael Jackson"));
+        cancions.add(new Cancion(2,"Fire to the Fuse", Duration.ofMinutes(4), "Electronica", "Watson Michael"));
+        cancions.add(new Cancion(3,"El amor es de Dios", Duration.ofMinutes(5), "Banda", "Vicente Fernandez"));
+        cancions.add(new Cancion(4,"Feel this moment", Duration.ofMinutes(4), "Pop", "Pitbull"));
+
         System.out.println("Elige una cancion de esta playlist! (su numero de posicion en la lista)");
-        System.out.print(CurrentList);
+        for(int i = 0; i < cancions.size(); i++){
+            System.out.print(cancions.get(i));
+        }
 
         PlaylistIndex = scan.nextInt();
-        PlaylistIndex = PlaylistIndex - 1;
 
-        System.out.print(CurrentList.get(PlaylistIndex) + " Is playing right now");
+        System.out.print(cancions.get(PlaylistIndex).getNombre() + " Is playing right now");
     }
 
     /******************************************************************
@@ -98,28 +110,51 @@ public abstract class Radio {
      * 
      ******************************************************************/
 
-    public void ChangeSongForward(ArrayList CurrentList) {
+    public void ChangeSongForward() {
         int PlaylistIndex;
 
+        ArrayList<Cancion> cancions = new ArrayList<Cancion>();
+        cancions.add(new Cancion(0,"Bones", Duration.ofMinutes(3), "Electronica", "Imagine Dragons"));
+        cancions.add(new Cancion(1,"Billie Jean", Duration.ofMinutes(5), "Pop", "Michael Jackson"));
+        cancions.add(new Cancion(2,"Fire to the Fuse", Duration.ofMinutes(4), "Electronica", "Watson Michael"));
+        cancions.add(new Cancion(3,"El amor es de Dios", Duration.ofMinutes(5), "Banda", "Vicente Fernandez"));
+        cancions.add(new Cancion(4,"Feel this moment", Duration.ofMinutes(4), "Pop", "Pitbull"));
+
         System.out.println("Elige una cancion de esta playlist! (su numero de posicion en la lista)");
-        System.out.print(CurrentList);
+        for(int i = 0; i < cancions.size(); i++){
+            System.out.print(cancions.get(i));
+        }
 
         PlaylistIndex = scan.nextInt();
-        PlaylistIndex = PlaylistIndex + 1;
-
-        System.out.print(CurrentList.get(PlaylistIndex) + " Is playing right now");
+        if(PlaylistIndex == 4){
+            PlaylistIndex = PlaylistIndex -1 ;
+        }
+        else{
+            PlaylistIndex = PlaylistIndex + 1;
+        }
+        
+        System.out.print(cancions.get(PlaylistIndex).getNombre() + " Is playing right now");
     }
 
-    public void ChangeSongBackwards(ArrayList CurrentList) {
+    public void ChangeSongBackwards() {
         int PlaylistIndex;
 
+        ArrayList<Cancion> cancions = new ArrayList<Cancion>();
+        cancions.add(new Cancion(0,"Bones", Duration.ofMinutes(3), "Electronica", "Imagine Dragons"));
+        cancions.add(new Cancion(1,"Billie Jean", Duration.ofMinutes(5), "Pop", "Michael Jackson"));
+        cancions.add(new Cancion(2,"Fire to the Fuse", Duration.ofMinutes(4), "Electronica", "Watson Michael"));
+        cancions.add(new Cancion(3,"El amor es de Dios", Duration.ofMinutes(5), "Banda", "Vicente Fernandez"));
+        cancions.add(new Cancion(4,"Feel this moment", Duration.ofMinutes(4), "Pop", "Pitbull"));
+
         System.out.println("Elige una cancion de esta playlist! (su numero de posicion en la lista)");
-        System.out.print(CurrentList);
+        for(int i = 0; i < cancions.size(); i++){
+            System.out.print(cancions.get(i));
+        }
 
         PlaylistIndex = scan.nextInt();
-        PlaylistIndex = PlaylistIndex + 1;
+        PlaylistIndex = PlaylistIndex - 1;
 
-        System.out.print(CurrentList.get(PlaylistIndex) + " Is playing right now");
+        System.out.print(cancions.get(PlaylistIndex).getNombre() + " Is playing right now");
     }
 
     /******************************************************************
