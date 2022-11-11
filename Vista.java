@@ -25,7 +25,7 @@ class Vista {
     System.out.println("5. Apagar Radio");
     System.out.println("6. Salir de la Radio\n\n");
 
-    System.out.println("Selecciona una opcion 1-5");
+    System.out.println("Selecciona una opcion 1-6");
   }
 
   public void ModoRadio() {
