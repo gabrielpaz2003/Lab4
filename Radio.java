@@ -7,9 +7,6 @@
 * Author: Andre Marroquin
 * Carné: 22266
 * Fecha de edicion 11-11-22
-* Author: Gabriel Paz. Andre Marroquin
-* Carnet 221087, 22266
-* Fecha de edicion 10-11-2022
 * 
 * This class is abstract and serves as the "mother" class. It includes all the generic actions a radio can do
 * 
