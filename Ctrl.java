@@ -15,7 +15,7 @@ import java.util.ArrayList;
 class Ctrl {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
-        // Crear perro y pe
+        // Crear 
         int opcion = 0;
 
         Vista UserView = new Vista();
