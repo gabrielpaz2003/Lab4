@@ -175,6 +175,7 @@ class Ctrl {
                             System.out.println("Opciones especiales para carro A");
                             System.out.println("1. Poner llamada en hold");
                             System.out.println("2. Mostrar Pronostico del clima");
+                            System.out.println("3. Salir");
                             OpcionModoSpecialC = scan.nextInt();
 
                             if (OpcionModoSpecialC == 1) {
