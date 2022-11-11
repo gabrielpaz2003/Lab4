@@ -14,7 +14,6 @@
 ******************************************************************/
 
 import java.util.Scanner;
-import java.time.Duration;
 import java.util.ArrayList;
 
 class Ctrl {
